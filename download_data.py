@@ -64,6 +64,43 @@ class GetData:
             path.mkdir(parents=True, exist_ok=False)
         except FileExistsError:
             print(f"[{self.make_data_dir.__name__}] Folder is already there.")
+
+    def check_file_exists(self, file_name, expected_size):
+        """
+        Check if a given file already exists and if the size of the file is 
+        as big as it supposed to be.
+
+        :parameters
+        -----------
+        file_name - String
+            Name of the file
+        expected_size - int
+            Expected size of the file
+
+        :returns
+        --------
+        True
+            Return True if the file already exists AND if it has the expected file size
+        False
+            Return False if the file does not exists OR if it is NOT the expected file size
+
+        :exception
+        ----------
+        FileNotFoundError
+            If the file does not exists yet, return False
+        """
+        try:
+            file = Path(self.data_dir + file_name)
+            # Check if exists
+            check = file.exists()
+            # Get file size
+            file_size = file.stat().st_size
+            if check and file_size == expected_size:
+                return True
+            else:
+                return False
+        except FileNotFoundError as e:
+            return False
             
     @staticmethod
     def find_NO2_files(url) -> list:
