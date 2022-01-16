@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 import requests
 from urllib.parse import urlparse
 from tqdm import tqdm
+import argparse
 
 # Logger file
 from logger import log
@@ -21,6 +22,7 @@ logger = create_logger("data_log.log")
 
 __author__ = "Stijn Arends"
 __date__ = "16-01-2022"
+__version__ = "v0.1"
 
 
 class FourOFourError(Exception):
@@ -220,9 +222,14 @@ class GetData:
 
 
 @log(logger)
-def get_config() -> dict:
+def get_config(file) -> dict:
     """
     Read in config file and return it as a dictionary.
+
+    :parameter
+    ----------
+    file - String
+        Location of config file
     
     :returns
     --------
@@ -230,7 +237,7 @@ def get_config() -> dict:
         Configuration file in dictionary form.
     """
     try:
-        with open("config.yaml", 'r') as stream:
+        with open(file, 'r') as stream:
             config = yaml.safe_load(stream)
     
         return config
@@ -238,9 +245,40 @@ def get_config() -> dict:
         print(f"File: could not be found. Error {e}")
         sys.exit(1)
 
+def add_arguments() -> str:
+    """
+    Define the arguments, description and epilog of the script.
 
-def main():
-    config = get_config()
+    :return
+    -------
+    args.c - String
+        Location of the config file - mandatory
+    """
+    parser = argparse.ArgumentParser(prog="download_Data",
+        description="Python script to download NO2 related data.",
+        epilog="Contact: stijnarend@live.nl")
+
+    # Set version
+    parser.version = __version__
+
+    parser.add_argument('-c',
+        help='Config file containing: data directory, urls to download from.')
+
+    parser.add_argument('-v',
+        '--version',
+        help='Displays the version number of the script and exitst',
+        action='version')
+
+    # Print help if no arguments are supplied and stop the program
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
+
+    args = parser.parse_args()
+    return args.c
+
+def main(config_file):
+    config = get_config(config_file)
     data_dir = config['datadir']
     urls = config['urls']
     
@@ -273,4 +311,5 @@ def main():
             print("All files have already been downloaded.")
 
 if __name__ == "__main__":
-    sys.exit(main())
+    config = add_arguments()
+    sys.exit(main(config))
