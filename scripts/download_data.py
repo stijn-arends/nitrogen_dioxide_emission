@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 # IMPORTS
-from msilib.schema import File
 import sys
 from typing import Any
 from xmlrpc.client import boolean
@@ -18,7 +17,7 @@ from logger import log
 from logger import create_logger
 
 # Create logger object
-logger = create_logger("data_log.log")
+logger = create_logger(Path("data_log.log"))
 
 __author__ = "Stijn Arends"
 __date__ = "16-01-2022"
