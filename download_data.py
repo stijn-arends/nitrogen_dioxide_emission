@@ -3,12 +3,20 @@
 # IMPORTS
 import sys
 from typing import Any
+from xmlrpc.client import boolean
 import yaml
 from pathlib import Path
 from bs4 import BeautifulSoup
 import requests
 from urllib.parse import urlparse
 from tqdm import tqdm
+
+# Logger file
+from logger import log
+from logger import create_logger
+
+# Create logger object
+logger = create_logger("data_log.log")
 
 __author__ = "Stijn Arends"
 __date__ = "16-01-2022"
@@ -49,6 +57,7 @@ class GetData:
     def __init__(self, data_dir):
         self.data_dir = data_dir
 
+    @log(logger)
     def make_data_dir(self) -> None:
         """
         Create a directory (if it does not exisit yet) to store the 
@@ -65,7 +74,8 @@ class GetData:
         except FileExistsError:
             print(f"[{self.make_data_dir.__name__}] Folder is already there.")
 
-    def check_file_exists(self, file_name, expected_size):
+    @log(logger)
+    def check_file_exists(self, file_name, expected_size) -> boolean:
         """
         Check if a given file already exists and if the size of the file is 
         as big as it supposed to be.
@@ -103,6 +113,7 @@ class GetData:
             return False
             
     @staticmethod
+    @log(logger)
     def find_NO2_files(url) -> list:
         """
         Find the files that contain information about NO2 and save there url in a list.
@@ -142,6 +153,7 @@ class GetData:
                 hrefs.append(url_data)
         return hrefs
 
+    @log(logger)
     def download_NO2_data(self, url) -> Any:
         """
         Send a GET request to the specified url.
@@ -182,6 +194,7 @@ class GetData:
             raise
         return response
 
+    @log(logger)
     def write_data(self, file, response, * , chunk_size=1024, unit='KB') -> None:
         """
         Write out the data from the response in chunks out to an output file.
