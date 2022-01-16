@@ -223,7 +223,34 @@ def main():
     config = get_config()
     data_dir = config['datadir']
     urls = config['urls']
+    
+    # Create instance of the class
+    get_data = GetData(data_dir)
+    get_data.make_data_dir()
+    
+    for year, url in urls.items():
+        print(f"Year: {year}, url: {url}")
+        # Find all NO2 files from the specific year
+        hrefs = get_data.find_NO2_files(url)
+        # Get file names
+        file_names = [urlparse(href).path.rsplit("/", 1)[-1] for href in hrefs]
 
+        # Get the content of the files
+        responses = list(map(get_data.download_NO2_data, hrefs))
+
+        # Get the index
+        indices_to_keep = [i for i, val in enumerate(responses) if val != None]
+
+        # Select the files that still need to be dowloaded
+        files_to_download = list(map(responses.__getitem__, indices_to_keep))
+
+        # Get the names of the files that still need to be downloaded.
+        file_names_to_download = list(map(file_names.__getitem__, indices_to_keep))
+
+        if len(files_to_download) != 0:
+            list(map(get_data.write_data, file_names_to_download, files_to_download))
+        else:
+            print("All files have already been downloaded.")
 
 if __name__ == "__main__":
     sys.exit(main())
