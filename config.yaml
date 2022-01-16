@@ -1,4 +1,4 @@
-datadir: 'data/'
+datadir: '../data/'
 urls: {
   "2020": "https://data.rivm.nl/data/luchtmeetnet/Vastgesteld-jaar/2020/",
   "2021": "https://data.rivm.nl/data/luchtmeetnet/Actueel-jaar/"
