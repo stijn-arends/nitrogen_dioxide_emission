@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # IMPORTS
+from msilib.schema import File
 import sys
 from typing import Any
 from xmlrpc.client import boolean
@@ -218,6 +219,7 @@ class GetData:
                 f.write(data)
 
 
+@log(logger)
 def get_config() -> dict:
     """
     Read in config file and return it as a dictionary.
@@ -227,9 +229,14 @@ def get_config() -> dict:
     config - dict
         Configuration file in dictionary form.
     """
-    with open("config.yaml", 'r') as stream:
-        config = yaml.safe_load(stream)
-    return config
+    try:
+        with open("config.yaml", 'r') as stream:
+            config = yaml.safe_load(stream)
+    
+        return config
+    except FileNotFoundError as e:
+        print(f"File: could not be found. Error {e}")
+        sys.exit(1)
 
 
 def main():
