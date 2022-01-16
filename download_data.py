@@ -182,6 +182,28 @@ class GetData:
             raise
         return response
 
+    def write_data(self, file, response, * , chunk_size=1024, unit='KB') -> None:
+        """
+        Write out the data from the response in chunks out to an output file.
+
+        :parameters
+        -----------
+        file - String
+            File name
+        response - requests.models.Respone
+            response of the GET request to an url 
+        chunk_size - int
+            Size of the chunks
+        unit - String
+            units: ['KB', 'MB', 'GB']
+        """
+        # Total size of the content
+        total_size = int(response.headers['content-length'])
+
+        with open(Path(self.data_dir + file), 'wb') as f:
+            for data in tqdm(iterable=response.iter_content(chunk_size=chunk_size), desc=f"Progress {file}", total=(total_size/chunk_size) + 1, unit=unit):
+                f.write(data)
+
 
 def get_config() -> dict:
     """
