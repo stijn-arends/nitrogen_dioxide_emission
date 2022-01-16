@@ -142,6 +142,46 @@ class GetData:
                 hrefs.append(url_data)
         return hrefs
 
+    def download_NO2_data(self, url) -> Any:
+        """
+        Send a GET request to the specified url.
+        Also checks if the download has already been satisfied. If that is 
+        the case then return None.
+
+        :parameters
+        -----------
+        url - String
+            String of an url
+
+        :returns
+        --------
+        None
+            In case if the file has already been downloaded
+        response - requests.models.Respone
+            response of the GET request to an url
+
+        :except
+        --------  
+        requests.RequestException
+            An error that might occur while sending a request to the url
+        """
+        try:
+            # response_content = requests.get(url).content
+            response = requests.get(url, stream=True)
+            # File size
+            expected_size = int(response.headers['content-length'])
+            # File name
+            file_name = urlparse(url).path.rsplit("/", 1)[-1]
+            if self.check_file_exists(file_name, expected_size): # Check if file already has been downloaded
+                return None
+            if response.status_code == 404:
+                raise FourOFourError(url)
+        except requests.RequestException as e:
+            print(f"Error: {e}")
+            print(f"An error has occured while sending a request to the following url: {url}.")
+            raise
+        return response
+
 
 def get_config() -> dict:
     """
