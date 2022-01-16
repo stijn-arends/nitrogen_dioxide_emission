@@ -2,11 +2,30 @@
 
 # IMPORTS
 import sys
+from typing import Any
 import yaml
 from pathlib import Path
+from bs4 import BeautifulSoup
+import requests
+from urllib.parse import urlparse
+from tqdm import tqdm
 
 __author__ = "Stijn Arends"
 __date__ = "16-01-2022"
+
+
+class FourOFourError(Exception):
+    """Exception raised for 404 errors.
+
+    Attributes:
+        url -- url of a website
+        message -- explanation of the error
+    """
+
+    def __init__(self, url):
+        self.url = url
+        self.message = f"404 Error for url: {url}"
+        super().__init__(self.message)
 
 
 class GetData:
@@ -45,6 +64,46 @@ class GetData:
             path.mkdir(parents=True, exist_ok=False)
         except FileExistsError:
             print(f"[{self.make_data_dir.__name__}] Folder is already there.")
+            
+    @staticmethod
+    def find_NO2_files(url) -> list:
+        """
+        Find the files that contain information about NO2 and save there url in a list.
+
+        :parameter
+        ----------
+        url - String
+            String of an url
+
+        :returns
+        --------
+        hrefs - list
+            List of urls
+
+        :Excepts
+        --------  
+        requests.RequestException
+            An error that might occur while sending a request to the url
+        """
+        try:
+            response = requests.get(url) 
+            if response.status_code == 404:
+                raise FourOFourError(url)
+        except requests.RequestException as e: # requests.exceptions.RequestException
+            print(f"Error: {e}")
+            print(f"An error has occured while sending a request to the following url: {url}.")
+            raise 
+
+        soup = BeautifulSoup(response.text, features="html.parser")
+
+        hrefs = []
+        # Get the files from the url
+        for a in soup.find_all('a'):
+            if 'NO2' in a['href']:
+                # a['href'] is the name of the file
+                url_data = url + a['href']
+                hrefs.append(url_data)
+        return hrefs
 
 
 def get_config() -> dict:
