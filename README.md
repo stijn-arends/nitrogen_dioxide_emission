@@ -7,7 +7,7 @@ Studying the effect of the number of corona cases and the lockdowns on the emiss
 ### Data
 
 ### Data description
-What is the format of the data? What does it contain?
+A description of the data format can be found in the [`docs/`](doce/) folder.
 
 
 ## Installation
@@ -22,9 +22,9 @@ To create a new environment which contains all the required packages plus the ri
   conda env create -f environment.yml
 ```
 
-This will create a new environment named `mosquito_env` which can be used to run this repository.
+This will create a new environment named `DSLS_prog_final` which can be used to run the code for this project.
 
-> NOTE: the environment.yml is located in the install/ directory [here](install/environment.yml).
+> NOTE: the environment.yml is located in the install/ directory [here](install/environment.yaml).
 
 ### Multiple installs
 An other option is to install each package seperately, either with conda or pip.
@@ -43,7 +43,41 @@ pip
 
 ## Getting started
 * * *
-How to run the code?
+
+### Configuration file
+
+A configuration file, called [config.yaml](config.yaml), is used for this project to download the data and to analyze the data.
+It stores information about were the data is stored, and from which URL the data needs to downloaded from.
+
+Example:
+```YAML
+
+datadir: 'data/'
+urls: {
+  "2020": "https://data.rivm.nl/data/luchtmeetnet/Vastgesteld-jaar/2020/",
+  "2021": "https://data.rivm.nl/data/luchtmeetnet/Actueel-jaar/"
+}
+```
+
+### Downloading the data
+
+The data that is used for this project can be automatically downloaded using a python script called [`download_data.py`](scrtips/download_data.py).
+
+> NOTE: this script will be logged and the output is stored in a folder called `logs` which will be created in the `scripts/` folder.
+
+Example:
+
+```bash
+  python download_data.py -c config.yaml
+```
+
+> NOTE: [config.yaml](config.yaml) contains information about where the data should be stored and which urls need to be used to download the data.
+
+Information about the script and how to use it can be aquired using the help argument:
+
+```bash
+  python download_data.py -h
+```
 
 
 ## Requirements
@@ -76,3 +110,9 @@ How to run the code?
 ## License
 * * *
 This project contains a MIT [license](./LICENSE.md)
+
+## Author
+* * *
+Stijn Arends
+Student master Data Science for Life Sciences
+17-01-2022
