@@ -61,7 +61,7 @@ urls: {
 
 ### Downloading the data
 
-The data that is used for this project can be automatically downloaded using a python script called [`download_data.py`](scrtips/download_data.py).
+The data that is used for this project can be automatically downloaded using a python script called [`download_data.py`](scripts/download_data.py).
 
 > NOTE: this script will be logged and the output is stored in a folder called `logs` which will be created in the `scripts/` folder.
 
@@ -113,6 +113,6 @@ This project contains a MIT [license](./LICENSE.md)
 
 ## Author
 * * *
-Stijn Arends
-Student master Data Science for Life Sciences
-17-01-2022
+Stijn Arends  
+Student master Data Science for Life Sciences  
+17-01-2022  
