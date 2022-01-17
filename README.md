@@ -1,15 +1,16 @@
 # The effect of a lockdown on the nitrogen dioxide emission in the Netherlands
 Studying the effect of the number of corona cases and the lockdowns on the emission of nitrogen dioxide
 
+* * *
 ## Description 
 * * *
 
 ### Data
 
 ### Data description
-A description of the data format can be found in the [`docs/`](doce/) folder.
+A description of the data format can be found in the [`docs/`](doce/) folder.  
 
-
+* * *
 ## Installation
 * * *
 
@@ -39,8 +40,9 @@ pip
   pip install <PACKAGE>==<VERSION>
 ```
 
-> NOTE: make sure to use the correct versions, which are listed [here](#packages).
+> NOTE: make sure to use the correct versions, which are listed [here](#packages).  
 
+* * *
 ## Getting started
 * * *
 
@@ -77,16 +79,17 @@ Information about the script and how to use it can be aquired using the help arg
 
 ```bash
   python download_data.py -h
-```
+```  
 
-
+* * *
 ## Requirements
 * * *
 | Software                          | Version  |
 | --------------------------------- | :------: |
-| [Python](https://www.python.org/) | `3.9.7`  |    
+| [Python](https://www.python.org/) | `3.9.7`  |  
 
 
+* * *
 ## Packages
 * * *
 | Package                                                           | Version      |
@@ -106,11 +109,13 @@ Information about the script and how to use it can be aquired using the help arg
 | [statsmodel](https://www.statsmodels.org/stable/index.html)       |`0.13.0`      |
 | [regex](https://docs.python.org/3/library/re.html)                | `2021.11.10` |
 
-
+  
+* * *
 ## License
 * * *
 This project contains a MIT [license](./LICENSE.md)
-
+  
+* * *
 ## Author
 * * *
 Stijn Arends  
