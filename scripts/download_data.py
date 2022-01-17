@@ -19,6 +19,7 @@ from logger import create_logger
 # Create logger object
 logger = create_logger(Path("data_log.log"))
 
+# Info
 __author__ = "Stijn Arends"
 __date__ = "16-01-2022"
 __version__ = "v0.1"
@@ -52,8 +53,16 @@ class GetData:
 
     Methods
     -------
-    make_data_dir():
+    make_data_dir() -> None:
         Create a directory in the system to store the data, if it doesn't exist yet.
+    check_file_exists(file_name, expected_size) -> boolean:
+        Given a file name and size, check if it already exists and if it has the expected file size.
+    find_NO2_files(url) -> list:
+        Given an url, find the files that contain information about NO2
+    download_NO2_files(url) -> Any:
+        Download a NO2 file
+    write_data(file, response, *, chunksize=1024, units='KB') -> None:
+        Write out the contents of the downloaded file
     """
 
     def __init__(self, data_dir):
