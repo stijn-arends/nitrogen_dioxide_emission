@@ -21,7 +21,9 @@ How to run the code?
 
 ## Requirements
 * * *
-
+| Software                          | Version  |
+| --------------------------------- | :------: |
+| [Python](https://www.python.org/) | `3.9.7`  |    
 
 
 ## Packages
