@@ -1,5 +1,10 @@
+# Location to store the data. 
+# ../ is used because the script that downloads the data is located in the script/ folder.
 datadir: '../data/'
 urls: {
   "2020": "https://data.rivm.nl/data/luchtmeetnet/Vastgesteld-jaar/2020/",
   "2021": "https://data.rivm.nl/data/luchtmeetnet/Actueel-jaar/"
 }
+
+# Location of the data directory 
+data: './data/'
