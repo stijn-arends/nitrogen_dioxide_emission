@@ -9,6 +9,7 @@ dependencies:
   - jupyter=1.0.0
   - scikit-learn=1.0.1
   - numpy=1.21.2
+  - panel=0.12.1
   - bokeh=2.3.3
   - regex=2021.11.10
   - pathlib=1.0.1
@@ -22,3 +23,5 @@ dependencies:
   - bs4=4.10.0
   - progressbar=2.5
   - tqdm=4.62.3
+  - holoviews=1.12.7
+  - hvplot=0.7.3
