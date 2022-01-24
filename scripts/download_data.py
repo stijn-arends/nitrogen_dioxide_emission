@@ -65,8 +65,10 @@ class GetData:
         Write out the contents of the downloaded file
     """
 
-    def __init__(self, data_dir):
+    def __init__(self, data_dir, year):
         self.data_dir = data_dir
+        self.year = year
+        self.data_dir_year = Path(data_dir + "/" + year + "/")
 
     @log(logger)
     def make_data_dir(self) -> None:
@@ -79,7 +81,7 @@ class GetData:
         FileExistsError
             The directory already exists
         """
-        path = Path(self.data_dir)
+        path = self.data_dir_year
         try:
             path.mkdir(parents=True, exist_ok=False)
         except FileExistsError:
@@ -111,7 +113,8 @@ class GetData:
             If the file does not exists yet, return False
         """
         try:
-            file = Path(self.data_dir + file_name)
+            # file = Path(self.data_dir + "/" + self.year + "/" + file_name)
+            file = self.data_dir_year / file_name
             # Check if exists
             check = file.exists()
             # Get file size
@@ -223,8 +226,9 @@ class GetData:
         """
         # Total size of the content
         total_size = int(response.headers['content-length'])
-
-        with open(Path(self.data_dir + file), 'wb') as f:
+        
+        # with open(Path(self.data_dir + file), 'wb') as f:
+        with open(self.data_dir_year / file, 'wb') as f:
             for data in tqdm(iterable=response.iter_content(chunk_size=chunk_size), desc=f"Progress {file}", total=(total_size/chunk_size) + 1, unit=unit):
                 f.write(data)
 
@@ -286,16 +290,24 @@ def add_arguments() -> str:
     return args.c
 
 def main(config_file):
+    # Make the sending request to urls asynchronous
+        # Use library httpx instead of requests
+        # Demonstrated in this video: https://www.youtube.com/watch?v=m_a0fN48Alw
+    # Example of code:
+        # https://stackoverflow.com/questions/9110593/asynchronous-requests-with-python-requests
+        # COmment by: DragonBobZ
+
     config = get_config(config_file)
     data_dir = config['datadir']
     urls = config['urls']
     
-    # Create instance of the class
-    get_data = GetData(data_dir)
-    get_data.make_data_dir()
-    
     for year, url in urls.items():
         print(f"Year: {year}, url: {url}")
+        # Create instance of the class
+        get_data = GetData(data_dir, year)
+
+        get_data.make_data_dir()
+
         # Find all NO2 files from the specific year
         hrefs = get_data.find_NO2_files(url)
         # Get file names
