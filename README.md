@@ -8,7 +8,7 @@ Studying the effect of the number of corona cases and the lockdowns on the emiss
 ### Data
 
 ### Data description
-A description of the data format can be found in the [`docs/`](doce/) folder.  
+A description of the data format can be found in the [`docs/data_format_explained.md`](docs/data_format_explained.md) file.  
 
 * * *
 ## Installation
