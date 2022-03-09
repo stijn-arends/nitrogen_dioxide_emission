@@ -1,9 +1,16 @@
 # The effect of a lockdown on the nitrogen dioxide emission in the Netherlands
 Studying the effect of the number of corona cases and the lockdowns on the emission of nitrogen dioxide
 
+
+* * *
+## Research question
+
+* Did the lockdown have an effect on the NO2 emission in the Netherlands?
+
+
 * * *
 ## Description 
-* * *
+
 
 ### Data
 
@@ -18,7 +25,7 @@ A full description of the NO2 emission data format can be found in the [`docs/da
 
 * * *
 ## Installation
-* * *
+
 
 ### Single install
 The easiest way to install all the required packages is via conda. How to install conda on your system can be found [here](https://docs.anaconda.com/anaconda/install/index.html).
@@ -50,7 +57,7 @@ pip
 
 * * *
 ## Getting started
-* * *
+
 
 ### Configuration file
 
@@ -93,9 +100,16 @@ Information about the script and how to use it can be aquired using the help arg
 
 To download the COVID and geojson data please use the links provided in the [data source](#source) section.
 
+
+* * *
+Justifying my actions
+
+Here I will explain why I did everythin the way I did.
+
+
 * * *
 ## Requirements
-* * *
+
 | Software                          | Version  |
 | --------------------------------- | :------: |
 | [Python](https://www.python.org/) | `3.9.7`  |  
@@ -103,7 +117,7 @@ To download the COVID and geojson data please use the links provided in the [dat
 
 * * *
 ## Packages
-* * *
+
 | Package                                                           | Version      |
 | ----------------------------------------------------------------- | :----------: |
 | [numpy](https://numpy.org/)                                       | `1.21.2`     |
@@ -124,12 +138,12 @@ To download the COVID and geojson data please use the links provided in the [dat
   
 * * *
 ## License
-* * *
+
 This project contains a MIT [license](./LICENSE.md)
   
 * * *
 ## Author
-* * *
+
 Stijn Arends  
 Student master Data Science for Life Sciences  
 17-01-2022  
