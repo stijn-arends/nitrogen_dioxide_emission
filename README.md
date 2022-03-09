@@ -7,8 +7,14 @@ Studying the effect of the number of corona cases and the lockdowns on the emiss
 
 ### Data
 
+### Source
+
+* NO2 emission data: https://data.rivm.nl/data/luchtmeetnet/ 
+* Covid data: https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series
+* geojson data the Netherlands: https://www.webuildinternet.com/2015/07/09/geojson-data-of-the-netherlands/
+
 ### Data description
-A description of the data format can be found in the [`docs/data_format_explained.md`](docs/data_format_explained.md) file.  
+A full description of the NO2 emission data format can be found in the [`docs/data_format_explained.md`](docs/data_format_explained.md) file.  
 
 * * *
 ## Installation
