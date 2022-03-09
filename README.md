@@ -55,7 +55,7 @@ pip
 ### Configuration file
 
 A configuration file, called [config.yaml](config.yaml), is used for this project to download the data and to analyze the data.
-It stores information about were the data is stored, and from which URL the data needs to downloaded from.
+It stores information about where the data is stored, and from which URL the data needs to be downloaded from.
 
 Example:
 ```YAML
@@ -69,7 +69,9 @@ urls: {
 
 ### Downloading the data
 
-The data that is used for this project can be automatically downloaded using a python script called [`download_data.py`](scripts/download_data.py).
+#### NO2
+
+The NO2 emission data that is used for this project can be automatically downloaded using a python script called [`download_data.py`](scripts/download_data.py).
 
 > NOTE: this script will be logged and the output is stored in a folder called `logs` which will be created in the `scripts/` folder.
 
@@ -86,6 +88,10 @@ Information about the script and how to use it can be aquired using the help arg
 ```bash
   python download_data.py -h
 ```  
+
+#### COVID and geojson
+
+To download the COVID and geojson data please use the links provided in the [data source](#source) section.
 
 * * *
 ## Requirements
