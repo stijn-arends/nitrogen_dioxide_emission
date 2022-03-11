@@ -97,6 +97,13 @@ pip
 * * *
 ## Getting started
 
+### Running the notebook. 
+
+The notebook contains the code for the analysis as well as the code to create the dashboard. It also contains a table of contents that can be used to navigate to a particular part, for example the code for the dashboard. 
+
+The configuration file, which is described below, needs to be filled in to be able to run the [notebook](NO2_emission_corona.ipynb). Besides that, the notebook should be run from top to bottom to make sure that no erros occur. 
+
+> NOTE: jupyter itself has to be launched frist
 
 ### Configuration file
 
