@@ -8,6 +8,11 @@ from functools import wraps
 from pathlib import Path
 
 
+__author__ = "Stijn Arends"
+__date__ = "16-01-2022"
+__version__ = "v0.1"
+
+
 def make_dir(folder):
     """
     Create a directory (if it does not exisit yet) to store log files.
