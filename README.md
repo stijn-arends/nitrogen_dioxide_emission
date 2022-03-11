@@ -11,6 +11,12 @@ Studying the effect of the number of corona cases and the lockdowns on the emiss
 * * *
 ## Description 
 
+This project studies the effect of the lockdowns that were initiated due to the corona pandemic on the nitrogen dioxide (NO2) emission in the Netherlands. NO2 emission data was used from several stations that are spread all over the Netherlands from the year 2020 and 2021. 
+
+Two different maps were created to show the NO2 emission in the Netherlands with the use of [folium](https://python-visualization.github.io/folium/). For one map the NO2 emission is displayed for each station for a date that can be selected by the user, it also displays if the selected date was during a lockdown or not. The second map displays the NO2 emission over time. In addition to this, a plot was created to show the NO2 emission in a line graph. The user can then select a station of intereset plus the date of interest. The date can be modified using a date range slider. 
+
+These different plots were cobined to create a dashboard about NO2 emission in the Netherlands. The dashboard was created using [panel](https://panel.holoviz.org/) and [bokeh](https://bokeh.org/). 
+
 
 ### Data
 
