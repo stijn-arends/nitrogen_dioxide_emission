@@ -25,3 +25,6 @@ dependencies:
   - tqdm=4.62.3
   - holoviews=1.12.7
   - hvplot=0.7.3
+  - folium=0.12.1.post1
+  - branca=0.4.2
+  
