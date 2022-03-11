@@ -1,5 +1,9 @@
 # The effect of a lockdown on the nitrogen dioxide emission in the Netherlands
-Studying the effect of the number of corona cases and the lockdowns on the emission of nitrogen dioxide
+Studying the effect of the number of corona cases and the lockdowns on the emission of nitrogen dioxide  
+
+[![Python version](https://img.shields.io/badge/python-3-blue)](https://www.python.org/download/releases/3.0/)
+[![panel](https://img.shields.io/badge/Python%20package-panel-brightgreen)](https://panel.holoviz.org/)
+[![bokeh](https://img.shields.io/badge/Python%20package-bokeh-brightgreen)](https://bokeh.org/)  
 
 
 <img src="https://github.com/stijn-arends/nitrogen_dioxide_emission/blob/main/imgs/dashboard_NO2_gif.gif" alt="dashboardGIF" height="500" width="100%">
