@@ -24,6 +24,8 @@ Two different maps were created to show the NO2 emission in the Netherlands with
 
 These different plots were cobined to create a dashboard about NO2 emission in the Netherlands. The dashboard was created using [panel](https://panel.holoviz.org/) and [bokeh](https://bokeh.org/). 
 
+<br/><br/>
+
 * * *
 ## Data
 
@@ -62,6 +64,10 @@ Information about the script and how to use it can be aquired using the help arg
 
 To download the COVID and geojson data please use the links provided in the [data source](#source) section.
 
+
+<br/><br/>
+
+
 * * *
 ## Installation
 
@@ -93,6 +99,9 @@ pip
 ```
 
 > NOTE: make sure to use the correct versions, which are listed [here](#packages).  
+
+
+<br/><br/>
 
 * * *
 ## Getting started
@@ -128,6 +137,8 @@ data: './data/'
 
 ```
 
+<br/><br/>
+
 * * *
 ## Justifying my actions
 
@@ -159,6 +170,7 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 
 > NOTE: a more detailed explanation can be found in section `3 Check assumptions` inside the notebook
 
+<br/><br/>
 
 * * *
 ## Requirements
@@ -167,6 +179,7 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 | --------------------------------- | :------: |
 | [Python](https://www.python.org/) | `3.9.7`  |  
 
+<br/><br/>
 
 * * *
 ## Packages
@@ -193,19 +206,19 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 | [tqdm](https://pypi.org/project/tqdm/)                            | `4.62.3`       | 
 
 
-
-
-
-
+<br/><br/>
   
 * * *
 ## License
 
 This project contains a MIT [license](./LICENSE.md)
   
+<br/><br/>
+
 * * *
 ## Author
 
 Stijn Arends  
 Student master Data Science for Life Sciences  
-17-01-2022  
+Hanze University of Applied Sciences  
+11-03-2022
