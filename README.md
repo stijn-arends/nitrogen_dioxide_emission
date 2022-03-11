@@ -184,12 +184,14 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 | [pandas](https://pandas.pydata.org/)                              | `1.3.3`        |
 | [panel](https://panel.holoviz.org/)                               | `0.12.1`       |
 | [pathlib](https://pathlib.readthedocs.io/en/0.5/l)                | `1.0.1`        |
+| [progressbar](https://pypi.org/project/progressbar/)              | `2.5`          |
 | [pyyaml](https://pyyaml.org/)                                     | `6.0`          |
 | [regex](https://docs.python.org/3/library/re.html)                | `2021.11.10`   |
 | [requests](https://docs.python-requests.org/en/master/index.html) | `2.27.1`       |
 | [scikit-learn](https://scikit-learn.org/stable/index.html)        | `1.0.1`        |
 | [scipy](https://scipy.org/)                                       | `1.7.1`        |
-| [statsmodel](https://www.statsmodels.org/stable/index.html)       |`0.13.0`        |
+| [statsmodel](https://www.statsmodels.org/stable/index.html)       | `0.13.0`       |
+| [tqdm](https://pypi.org/project/tqdm/)                            | `4.62.3`       | 
 
 
 
