@@ -141,6 +141,22 @@ However, I did organize the code for the dashboard inside of classes and tried t
 
 The original data contained a lot of missing data. For starters, stations that had more then 30% missing values were removed. It was decided to remove these stations because interpolation or imputation of data with two many missing values is not reliable and representative. The missing values of the stations that passed the initial filtering were imputed with a regression based approach. The reasoning for this is described inside the notebook in section `1.4 Impute missing data`. 
 
+> NOTE: more information regarding the choices that were made about the data can be found in secion `2 Data inspection` inside the notebook.
+
+### Plotting 
+
+Several plots were used to inspect the data. First, a heatmap was created to check if there were correlation between the different stations. The heatmap was created because information about the correlation between stations was needed for data imputation. Because, to impute data for a station, correlated stations were needed to create a model which produces reliable results. Second, a density plot was created to get an impression of the distribution of the NO2 values for both lockdown states. Finally, violin plots were used to get a more detailed look at the distribution of the NO2 values for both lockdowns. Weidgets were also added so that each station can be looked at individually. 
+
+QQ plots were used to check for normality in the data. 
+
+The two different folium maps were created to give a nice representaion of the data and the location of the station.
+
+### Statistical testing
+
+A Mann-Whitney U test was performed to test for differences between the two groups.  QQ plots, and the Levene's test were used to check if the data had a normal distribution and that there was equal variance amongst the data. However, that turned out to be not the case. That is why a non-parametric Mann-Whitney U test was used instead of a parametric T-test or ANNOVA.
+
+> NOTE: a more detailed explanation can be found in section `3 Check assumptions` inside the notebook
+
 
 * * *
 ## Requirements
