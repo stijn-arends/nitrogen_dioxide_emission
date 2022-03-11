@@ -113,7 +113,6 @@ class GetData:
             If the file does not exists yet, return False
         """
         try:
-            # file = Path(self.data_dir + "/" + self.year + "/" + file_name)
             file = self.data_dir_year / file_name
             # Check if exists
             check = file.exists()
@@ -290,13 +289,6 @@ def add_arguments() -> str:
     return args.c
 
 def main(config_file):
-    # Make the sending request to urls asynchronous
-        # Use library httpx instead of requests
-        # Demonstrated in this video: https://www.youtube.com/watch?v=m_a0fN48Alw
-    # Example of code:
-        # https://stackoverflow.com/questions/9110593/asynchronous-requests-with-python-requests
-        # COmment by: DragonBobZ
-
     config = get_config(config_file)
     data_dir = config['datadir']
     urls = config['urls']
