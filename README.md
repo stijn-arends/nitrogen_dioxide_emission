@@ -1,5 +1,5 @@
 # The effect of a lockdown on the nitrogen dioxide emission in the Netherlands
-Studying the effect of the number of corona cases and the lockdowns on the emission of nitrogen dioxide  
+Studying the effect of the number of corona cases and the lockdowns on the emission of nitrogen dioxide (NO2) in the Netherlands. 
 
 [![Python version](https://img.shields.io/badge/python-3-blue)](https://www.python.org/download/releases/3.0/)
 [![panel](https://img.shields.io/badge/Python%20package-panel-brightgreen)](https://panel.holoviz.org/)
@@ -24,8 +24,8 @@ Two different maps were created to show the NO2 emission in the Netherlands with
 
 These different plots were cobined to create a dashboard about NO2 emission in the Netherlands. The dashboard was created using [panel](https://panel.holoviz.org/) and [bokeh](https://bokeh.org/). 
 
-
-### Data
+* * *
+## Data
 
 ### Source
 
@@ -34,7 +34,33 @@ These different plots were cobined to create a dashboard about NO2 emission in t
 * geojson data the Netherlands: https://www.webuildinternet.com/2015/07/09/geojson-data-of-the-netherlands/
 
 ### Data description
-A full description of the NO2 emission data format can be found in the [`docs/data_format_explained.md`](docs/data_format_explained.md) file.  
+A full description of the NO2 emission data format can be found in the [`docs/data_format_explained.md`](docs/data_format_explained.md) file.
+
+### Downloading the data
+
+#### NO2
+
+The NO2 emission data that is used for this project can be automatically downloaded using a python script called [`download_data.py`](scripts/download_data.py).
+
+> NOTE: this script will be logged and the output is stored in a folder called `logs` which will be created in the `scripts/` folder.
+
+Example:
+
+```bash
+  python download_data.py -c config.yaml
+```
+
+> NOTE: [config.yaml](config.yaml) contains information about where the data should be stored and which urls need to be used to download the data.
+
+Information about the script and how to use it can be aquired using the help argument:
+
+```bash
+  python download_data.py -h
+```  
+
+#### COVID and geojson
+
+To download the COVID and geojson data please use the links provided in the [data source](#source) section.
 
 * * *
 ## Installation
@@ -93,33 +119,6 @@ urls: {
 data: './data/'
 
 ```
-
-### Downloading the data
-
-#### NO2
-
-The NO2 emission data that is used for this project can be automatically downloaded using a python script called [`download_data.py`](scripts/download_data.py).
-
-> NOTE: this script will be logged and the output is stored in a folder called `logs` which will be created in the `scripts/` folder.
-
-Example:
-
-```bash
-  python download_data.py -c config.yaml
-```
-
-> NOTE: [config.yaml](config.yaml) contains information about where the data should be stored and which urls need to be used to download the data.
-
-Information about the script and how to use it can be aquired using the help argument:
-
-```bash
-  python download_data.py -h
-```  
-
-#### COVID and geojson
-
-To download the COVID and geojson data please use the links provided in the [data source](#source) section.
-
 
 * * *
 Justifying my actions
