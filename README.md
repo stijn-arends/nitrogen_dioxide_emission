@@ -133,9 +133,9 @@ data: './data/'
 
 ### Coding
 
-Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specif class, and or don't benefit from being inside of a class. An example of this is the function that checks if a data is during a lockdown, or the functions that plot a heatmap, or violin plot. 
+Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specif class, and or don't benefit from being inside of one. An example of this is the function that checks if a date is during a lockdown, or the functions that plot a heatmap, or violin plot. 
 
-However, I did organize the code for the dashboard inside of classes and tried to follow the SOLID principles whereever it was possible. 
+However, I did organize the code for the dashboard inside of classes and tried to follow the SOLID principles wherever it was possible. 
 
 A [logging decorator](scripts/logger.py) was created to make sure that the code ran smoothly. If any exception occured while running the code than that would be logged, and if everything goes smoothly than that is reported.
 
@@ -171,22 +171,30 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 * * *
 ## Packages
 
-| Package                                                           | Version      |
-| ----------------------------------------------------------------- | :----------: |
-| [numpy](https://numpy.org/)                                       | `1.21.2`     |
-| [pandas](https://pandas.pydata.org/)                              | `1.3.3`      |
-| [bokeh](https://bokeh.org/)                                       | `2.3.3`      |
-| [panel](https://panel.holoviz.org/)                               | `0.12.1`     |
-| [holoviews](https://holoviews.org/)                               | `1.14.6`     |
-| [hvplot](https://hvplot.holoviz.org/)                             | `0.7.3`      |
-| [scipy](https://scipy.org/)                                       | `1.7.1`      |
-| [jupyter](https://jupyter.org/)                                   | `1.0.0`      |
-| [pyyaml](https://pyyaml.org/)                                     | `6.0`        |
-| [pathlib](https://pathlib.readthedocs.io/en/0.5/l)                | `1.0.1`      |
-| [requests](https://docs.python-requests.org/en/master/index.html) | `2.27.1`     |
-| [bs4](https://beautiful-soup-4.readthedocs.io/en/latest/)         | `4.10.0`     |
-| [statsmodel](https://www.statsmodels.org/stable/index.html)       |`0.13.0`      |
-| [regex](https://docs.python.org/3/library/re.html)                | `2021.11.10` |
+| Package                                                           | Version        |
+| ----------------------------------------------------------------- | :------------: |
+| [bokeh](https://bokeh.org/)                                       | `2.3.3`        |
+| [branca](https://pypi.org/project/branca/)                        | `0.4.2`        |
+| [bs4](https://beautiful-soup-4.readthedocs.io/en/latest/)         | `4.10.0`       |
+| [folium](https://python-visualization.github.io/folium/)          | `0.12.1.post1` |
+| [holoviews](https://holoviews.org/)                               | `1.14.6`       |
+| [hvplot](https://hvplot.holoviz.org/)                             | `0.7.3`        |
+| [jupyter](https://jupyter.org/)                                   | `1.0.0`        |
+| [numpy](https://numpy.org/)                                       | `1.21.2`       |
+| [pandas](https://pandas.pydata.org/)                              | `1.3.3`        |
+| [panel](https://panel.holoviz.org/)                               | `0.12.1`       |
+| [pathlib](https://pathlib.readthedocs.io/en/0.5/l)                | `1.0.1`        |
+| [pyyaml](https://pyyaml.org/)                                     | `6.0`          |
+| [regex](https://docs.python.org/3/library/re.html)                | `2021.11.10`   |
+| [requests](https://docs.python-requests.org/en/master/index.html) | `2.27.1`       |
+| [scikit-learn](https://scikit-learn.org/stable/index.html)        | `1.0.1`        |
+| [scipy](https://scipy.org/)                                       | `1.7.1`        |
+| [statsmodel](https://www.statsmodels.org/stable/index.html)       |`0.13.0`        |
+
+
+
+
+
 
   
 * * *
