@@ -117,6 +117,7 @@ Example:
 # ../ is used because the script that downloads the data is located in the script/ folder.
 datadir: '../data/'
 geojson: 'data/provinces.geojson'
+covid_data: "data/time_series_covid19_confirmed_global.csv"
 urls: {
   "2020": "https://data.rivm.nl/data/luchtmeetnet/Vastgesteld-jaar/2020/",
   "2021": "https://data.rivm.nl/data/luchtmeetnet/Actueel-jaar/"
@@ -128,9 +129,17 @@ data: './data/'
 ```
 
 * * *
-Justifying my actions
+## Justifying my actions
 
-Here I will explain why I did everythin the way I did.
+### Coding
+
+Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specif class, and or don't benefit from being inside of a class. An example of this is the function that checks if a data is during a lockdown, or the functions that plot a heatmap, or violet plot. 
+
+However, I did organize the code for the dashboard inside of classes and tried to follow the SOLID principles whereever it was possible. 
+
+### Data filtering and imputation
+
+The original data contained a lot of missing data. For starters, stations that had more then 30% missing values were removed. It was decided to remove these stations because interpolation or imputation of data with two many missing values is not reliable and representative. The missing values of the stations that passed the initial filtering were imputed with a regression based approach. The reasoning for this is described inside the notebook in section `1.4 Impute missing data`. 
 
 
 * * *
