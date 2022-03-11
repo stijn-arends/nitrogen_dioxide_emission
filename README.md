@@ -137,7 +137,7 @@ Not every piece of code is organized inside of a class. I thought that for some 
 
 However, I did organize the code for the dashboard inside of classes and tried to follow the SOLID principles whereever it was possible. 
 
-A [logging decorator](scrips/logger.py) was created to make sure that the code ran smoothly. If any exception occured while running the code than that would be logged, and if everything goes smoothly than that is reported.
+A [logging decorator](scripts/logger.py) was created to make sure that the code ran smoothly. If any exception occured while running the code than that would be logged, and if everything goes smoothly than that is reported.
 
 ### Data filtering and imputation
 
