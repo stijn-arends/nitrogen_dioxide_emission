@@ -133,9 +133,11 @@ data: './data/'
 
 ### Coding
 
-Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specif class, and or don't benefit from being inside of a class. An example of this is the function that checks if a data is during a lockdown, or the functions that plot a heatmap, or violet plot. 
+Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specif class, and or don't benefit from being inside of a class. An example of this is the function that checks if a data is during a lockdown, or the functions that plot a heatmap, or violin plot. 
 
 However, I did organize the code for the dashboard inside of classes and tried to follow the SOLID principles whereever it was possible. 
+
+A [logging decorator](scrips/logger.py) was created to make sure that the code ran smoothly. If any exception occured while running the code than that would be logged, and if everything goes smoothly than that is reported.
 
 ### Data filtering and imputation
 
