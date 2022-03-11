@@ -2,6 +2,9 @@
 Studying the effect of the number of corona cases and the lockdowns on the emission of nitrogen dioxide
 
 
+<img src="https://github.com/stijn-arends/nitrogen_dioxide_emission/blob/main/imgs/dashboard_NO2_gif.gif" alt="dashboardGIF" height="500" width="100%">
+
+
 * * *
 ## Research question
 
