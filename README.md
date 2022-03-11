@@ -76,11 +76,18 @@ It stores information about where the data is stored, and from which URL the dat
 Example:
 ```YAML
 
-datadir: 'data/'
+# Location to store the data. 
+# ../ is used because the script that downloads the data is located in the script/ folder.
+datadir: '../data/'
+geojson: 'data/provinces.geojson'
 urls: {
   "2020": "https://data.rivm.nl/data/luchtmeetnet/Vastgesteld-jaar/2020/",
   "2021": "https://data.rivm.nl/data/luchtmeetnet/Actueel-jaar/"
 }
+
+# Location of the data directory 
+data: './data/'
+
 ```
 
 ### Downloading the data
