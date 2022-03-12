@@ -361,41 +361,6 @@ def get_config(file) -> dict:
         sys.exit(1)
 
 
-
-
-
-# def add_arguments() -> str:
-#     """
-#     Define the arguments, description and epilog of the script.
-
-#     :return
-#     -------
-#     args.c - String
-#         Location of the config file - mandatory
-#     """
-#     parser = argparse.ArgumentParser(prog="download_Data",
-#         description="Python script to download NO2 related data.",
-#         epilog="Contact: stijnarend@live.nl")
-
-#     # Set version
-#     parser.version = __version__
-
-#     parser.add_argument('-c',
-#         help='Config file containing: data directory, urls to download from.')
-
-#     parser.add_argument('-v',
-#         '--version',
-#         help='Displays the version number of the script and exitst',
-#         action='version')
-
-#     # Print help if no arguments are supplied and stop the program
-#     if len(sys.argv) == 1:
-#         parser.print_help(sys.stderr)
-#         sys.exit(1)
-
-#     args = parser.parse_args()
-#     return args.c
-
 def main():
 
     cla_parser = ArgumentParser()
