@@ -145,11 +145,17 @@ data: './data/'
 * * *
 ## Justifying my actions
 
+### Data maintenance 
+
+The data is stored and maintained by third parties, links can be found in the [data source](#source) section. The data that was originally used for this project can be found inside this reposity in the [data](data/) and [geojson](geojson/) folders. No personal or private data was used so the data can be stored in the repository. 
+
+If additional NO2 emission data is published then it can be downloaded using the [download data script](scripts/download_data.py). 
+
 ### Coding
 
 Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specif class, and or don't benefit from being inside of one. An example of this is the function that checks if a date is during a lockdown, or the functions that plot a heatmap, or violin plot. 
 
-However, I did organize the code for the dashboard inside of classes and tried to follow the SOLID principles wherever it was possible. 
+However, the code for the dashboard is organized inside of classes where the SOLID principles were followed whever it was possible. For example, a base class was made to create a folium map, which can easily be extended by inherting it in a new class and adding additional functionalties. For example to create a map with markers or a heatmap over time. 
 
 A [logging decorator](scripts/logger.py) was created to make sure that the code ran smoothly. If any exception occured while running the code than that would be logged, and if everything goes smoothly than that is reported.
 
