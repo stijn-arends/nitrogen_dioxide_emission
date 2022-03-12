@@ -11,6 +11,7 @@ import requests
 from urllib.parse import urlparse
 from tqdm import tqdm
 import argparse
+import os
 
 # Logger file
 from logger import log
@@ -226,10 +227,58 @@ class GetData:
         # Total size of the content
         total_size = int(response.headers['content-length'])
         
-        # with open(Path(self.data_dir + file), 'wb') as f:
         with open(self.data_dir_year / file, 'wb') as f:
             for data in tqdm(iterable=response.iter_content(chunk_size=chunk_size), desc=f"Progress {file}", total=(total_size/chunk_size) + 1, unit=unit):
                 f.write(data)
+
+
+
+class ArgumentParser:
+    """
+    Class to parse the input arguments.
+    """
+
+    def __init__(self):
+        parser = self._create_argument_parser()
+        # Print help if no arguments are supplied and stop the program
+        if len(sys.argv) == 1:
+            parser.print_help(sys.stderr)
+            sys.exit(1)
+        self.arguments = parser.parse_args()
+
+    @staticmethod
+    def _create_argument_parser():
+        parser = argparse.ArgumentParser(prog=os.path.basename(__file__),
+            description="Python script to download NO2 related data.",
+            epilog="Contact: stijnarend@live.nl")
+
+        # Set version
+        parser.version = __version__
+
+        parser.add_argument('-c',
+            '--config',
+            help='Config file containing: data directory, urls to download from.')
+
+        parser.add_argument('-v',
+            '--version',
+            help='Displays the version number of the script and exitst',
+            action='version')
+
+        return parser
+
+    def get_argument(self, argument_key):
+        """
+        Method to get an input argument.
+        :param argument_key: Full command line argument (so --input for the
+        input argument).
+        :return: List or boolean
+        """
+        if self.arguments is not None and argument_key in self.arguments:
+            value = getattr(self.arguments, argument_key)
+        else:
+            value = None
+        return value
+
 
 
 @log(logger)
@@ -256,72 +305,82 @@ def get_config(file) -> dict:
         print(f"File: could not be found. Error {e}")
         sys.exit(1)
 
-def add_arguments() -> str:
-    """
-    Define the arguments, description and epilog of the script.
 
-    :return
-    -------
-    args.c - String
-        Location of the config file - mandatory
-    """
-    parser = argparse.ArgumentParser(prog="download_Data",
-        description="Python script to download NO2 related data.",
-        epilog="Contact: stijnarend@live.nl")
 
-    # Set version
-    parser.version = __version__
 
-    parser.add_argument('-c',
-        help='Config file containing: data directory, urls to download from.')
 
-    parser.add_argument('-v',
-        '--version',
-        help='Displays the version number of the script and exitst',
-        action='version')
+# def add_arguments() -> str:
+#     """
+#     Define the arguments, description and epilog of the script.
 
-    # Print help if no arguments are supplied and stop the program
-    if len(sys.argv) == 1:
-        parser.print_help(sys.stderr)
-        sys.exit(1)
+#     :return
+#     -------
+#     args.c - String
+#         Location of the config file - mandatory
+#     """
+#     parser = argparse.ArgumentParser(prog="download_Data",
+#         description="Python script to download NO2 related data.",
+#         epilog="Contact: stijnarend@live.nl")
 
-    args = parser.parse_args()
-    return args.c
+#     # Set version
+#     parser.version = __version__
 
-def main(config_file):
-    config = get_config(config_file)
-    data_dir = config['datadir']
-    urls = config['urls']
+#     parser.add_argument('-c',
+#         help='Config file containing: data directory, urls to download from.')
+
+#     parser.add_argument('-v',
+#         '--version',
+#         help='Displays the version number of the script and exitst',
+#         action='version')
+
+#     # Print help if no arguments are supplied and stop the program
+#     if len(sys.argv) == 1:
+#         parser.print_help(sys.stderr)
+#         sys.exit(1)
+
+#     args = parser.parse_args()
+#     return args.c
+
+def main():
+
+    cla_parser = ArgumentParser()
+    config_file = cla_parser.get_argument('config')
+
+    print(f"Config file: {config_file}")
+
+    # config = get_config(config_file)
+    # data_dir = config['datadir']
+    # urls = config['urls']
     
-    for year, url in urls.items():
-        print(f"Year: {year}, url: {url}")
-        # Create instance of the class
-        get_data = GetData(data_dir, year)
+    # for year, url in urls.items():
+    #     print(f"Year: {year}, url: {url}")
+    #     # Create instance of the class
+    #     get_data = GetData(data_dir, year)
 
-        get_data.make_data_dir()
+    #     get_data.make_data_dir()
 
-        # Find all NO2 files from the specific year
-        hrefs = get_data.find_NO2_files(url)
-        # Get file names
-        file_names = [urlparse(href).path.rsplit("/", 1)[-1] for href in hrefs]
+    #     # Find all NO2 files from the specific year
+    #     hrefs = get_data.find_NO2_files(url)
+    #     # Get file names
+    #     file_names = [urlparse(href).path.rsplit("/", 1)[-1] for href in hrefs]
 
-        # Get the content of the files
-        responses = list(map(get_data.download_NO2_data, hrefs))
+    #     # Get the content of the files
+    #     responses = list(map(get_data.download_NO2_data, hrefs))
 
-        # Get the index
-        indices_to_keep = [i for i, val in enumerate(responses) if val != None]
+    #     # Get the index
+    #     indices_to_keep = [i for i, val in enumerate(responses) if val != None]
 
-        # Select the files that still need to be dowloaded
-        files_to_download = list(map(responses.__getitem__, indices_to_keep))
+    #     # Select the files that still need to be dowloaded
+    #     files_to_download = list(map(responses.__getitem__, indices_to_keep))
 
-        # Get the names of the files that still need to be downloaded.
-        file_names_to_download = list(map(file_names.__getitem__, indices_to_keep))
+    #     # Get the names of the files that still need to be downloaded.
+    #     file_names_to_download = list(map(file_names.__getitem__, indices_to_keep))
 
-        if len(files_to_download) != 0:
-            list(map(get_data.write_data, file_names_to_download, files_to_download))
-        else:
-            print("All files have already been downloaded.")
+    #     if len(files_to_download) != 0:
+    #         list(map(get_data.write_data, file_names_to_download, files_to_download))
+    #     else:
+    #         print("All files have already been downloaded.")
 
 if __name__ == "__main__":
-    config = add_arguments()
-    sys.exit(main(config))
+    # config = add_arguments()
+    sys.exit(main())
