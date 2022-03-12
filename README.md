@@ -163,7 +163,11 @@ A [logging decorator](scripts/logger.py) was created to make sure that the code 
 
 The original data contained a lot of missing data. For starters, stations that had more then 30% missing values were removed. It was decided to remove these stations because interpolation or imputation of data with two many missing values is not reliable and representative. The missing values of the stations that passed the initial filtering were imputed with a regression based approach. The reasoning for this is described inside the notebook in section `1.4 Impute missing data`. 
 
-> NOTE: more information regarding the choices that were made about the data can be found in secion `2 Data inspection` inside the notebook.
+
+### Data inspection
+
+First, the data was inspected by getting the descriptive statistics, mean, std, var, max, min, etc. How possible outliers were handled amongst other things is described in secion `2 Data inspection` inside the notebook.
+
 
 ### Plotting 
 
