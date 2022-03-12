@@ -362,12 +362,11 @@ def get_config(file) -> dict:
 
 
 def main():
-
+    # Get passed arguments
     cla_parser = ArgumentParser()
     config_file = cla_parser.get_argument('config')
 
-    print(f"Config file: {config_file}")
-
+    # Validate passed arguments
     cla_validator = CommandLineArgumentsValidator()
     cla_validator.validate_input_path(config_file)
 
