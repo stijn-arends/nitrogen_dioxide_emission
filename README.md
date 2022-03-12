@@ -32,8 +32,11 @@ These different plots were cobined to create a dashboard about NO2 emission in t
 ### Source
 
 * NO2 emission data: https://data.rivm.nl/data/luchtmeetnet/ 
+  * Date accessed: 12-03-2022 
 * Covid data: https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series
+  * Date accessed: 12-03-2022 
 * geojson data the Netherlands: https://www.webuildinternet.com/2015/07/09/geojson-data-of-the-netherlands/
+  * Date accessed: 12-03-2022  
 
 ### Data description
 A full description of the NO2 emission data format can be found in the [`docs/data_format_explained.md`](docs/data_format_explained.md) file.
