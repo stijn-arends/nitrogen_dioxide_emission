@@ -404,5 +404,4 @@ def main():
             print("All files have already been downloaded.")
 
 if __name__ == "__main__":
-    # config = add_arguments()
     sys.exit(main())
