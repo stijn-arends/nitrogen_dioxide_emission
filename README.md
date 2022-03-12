@@ -81,12 +81,12 @@ The easiest way to install all the required packages is via conda. How to instal
 To create a new environment which contains all the required packages plus the right version run the following code:
 
 ```bash
-  conda env create -f environment.yml
+  conda env create -f environment.yaml
 ```
 
 This will create a new environment named `DSLS_prog_final` which can be used to run the code for this project.
 
-> NOTE: the environment.yml is located in the install/ directory [here](install/environment.yaml).
+> NOTE: the environment.yaml is located in the install/ directory [here](install/environment.yaml).
 
 ### Multiple installs
 An other option is to install each package seperately, either with conda or pip.
@@ -189,22 +189,22 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 
 | Package                                                           | Version        |
 | ----------------------------------------------------------------- | :------------: |
-| [bokeh](https://bokeh.org/)                                       | `2.3.3`        |
+| [bokeh](https://bokeh.org/)                                       | `2.4.2`        |
 | [branca](https://pypi.org/project/branca/)                        | `0.4.2`        |
 | [bs4](https://beautiful-soup-4.readthedocs.io/en/latest/)         | `4.10.0`       |
 | [folium](https://python-visualization.github.io/folium/)          | `0.12.1.post1` |
-| [holoviews](https://holoviews.org/)                               | `1.14.6`       |
+| [holoviews](https://holoviews.org/)                               | `1.14.8`       |
 | [hvplot](https://hvplot.holoviz.org/)                             | `0.7.3`        |
 | [jupyter](https://jupyter.org/)                                   | `1.0.0`        |
-| [numpy](https://numpy.org/)                                       | `1.21.2`       |
-| [pandas](https://pandas.pydata.org/)                              | `1.3.3`        |
-| [panel](https://panel.holoviz.org/)                               | `0.12.1`       |
+| [numpy](https://numpy.org/)                                       | `1.21.5`       |
+| [pandas](https://pandas.pydata.org/)                              | `1.4.1`        |
+| [panel](https://panel.holoviz.org/)                               | `0.12.6`       |
 | [pathlib](https://pathlib.readthedocs.io/en/0.5/l)                | `1.0.1`        |
 | [pyyaml](https://pyyaml.org/)                                     | `6.0`          |
-| [regex](https://docs.python.org/3/library/re.html)                | `2021.11.10`   |
+| [regex](https://docs.python.org/3/library/re.html)                | `2021.8.3`     |
 | [requests](https://docs.python-requests.org/en/master/index.html) | `2.27.1`       |
-| [scikit-learn](https://scikit-learn.org/stable/index.html)        | `1.0.1`        |
-| [scipy](https://scipy.org/)                                       | `1.7.1`        |
+| [scikit-learn](https://scikit-learn.org/stable/index.html)        | `1.0.2`        |
+| [scipy](https://scipy.org/)                                       | `1.7.3`        |
 | [statsmodel](https://www.statsmodels.org/stable/index.html)       | `0.13.0`       |
 | [tqdm](https://pypi.org/project/tqdm/)                            | `4.62.3`       | 
 
