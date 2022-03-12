@@ -248,6 +248,19 @@ class ArgumentParser:
 
     @staticmethod
     def _create_argument_parser():
+        """
+        Create an argument parser.
+        
+        :arguments
+        ----------
+        -c, --config - configuration file
+        -v, --version - displays the version of the script
+        -h, --help - display the help text
+
+        :returns
+        --------
+        parser - ArgumentParser
+        """
         parser = argparse.ArgumentParser(prog=os.path.basename(__file__),
             description="Python script to download NO2 related data.",
             epilog="Contact: stijnarend@live.nl")
@@ -269,15 +282,57 @@ class ArgumentParser:
     def get_argument(self, argument_key):
         """
         Method to get an input argument.
-        :param argument_key: Full command line argument (so --input for the
-        input argument).
-        :return: List or boolean
+        :parameters
+        -----------
+        argument_key - str 
+            Full command line argument (so --config for the configuration file argument).
+
+    
+        :returns
+        --------
+        value - List or boolean
         """
         if self.arguments is not None and argument_key in self.arguments:
             value = getattr(self.arguments, argument_key)
         else:
             value = None
         return value
+
+
+class CommandLineArgumentsValidator:
+    """
+    Class to check if arguments are valid.
+    """
+
+    def validate_input_path(self, input_path):
+        self._validate_input_exists(input_path)
+        self._validate_input_extension(input_path)
+
+    @staticmethod
+    def _validate_input_exists(input_path):
+        """
+        Check if a file exists. 
+
+        :parameters
+        -----------
+        input_path - str
+            Path to a file
+        """
+        if not os.path.isfile(input_path):
+            raise FileNotFoundError('Input file does not exist!')
+
+    @staticmethod
+    def _validate_input_extension(input_path):
+        """
+        Check if a file has the right extension. 
+
+        :parameters
+        -----------
+        input_path - str
+            Path to a file
+        """
+        if not input_path.endswith(('.yaml')):
+            raise FileNotFoundError('Input file is not a yaml file!')
 
 
 
@@ -348,38 +403,41 @@ def main():
 
     print(f"Config file: {config_file}")
 
-    # config = get_config(config_file)
-    # data_dir = config['datadir']
-    # urls = config['urls']
+    cla_validator = CommandLineArgumentsValidator()
+    cla_validator.validate_input_path(config_file)
+
+    config = get_config(config_file)
+    data_dir = config['datadir']
+    urls = config['urls']
     
-    # for year, url in urls.items():
-    #     print(f"Year: {year}, url: {url}")
-    #     # Create instance of the class
-    #     get_data = GetData(data_dir, year)
+    for year, url in urls.items():
+        print(f"Year: {year}, url: {url}")
+        # Create instance of the class
+        get_data = GetData(data_dir, year)
 
-    #     get_data.make_data_dir()
+        get_data.make_data_dir()
 
-    #     # Find all NO2 files from the specific year
-    #     hrefs = get_data.find_NO2_files(url)
-    #     # Get file names
-    #     file_names = [urlparse(href).path.rsplit("/", 1)[-1] for href in hrefs]
+        # Find all NO2 files from the specific year
+        hrefs = get_data.find_NO2_files(url)
+        # Get file names
+        file_names = [urlparse(href).path.rsplit("/", 1)[-1] for href in hrefs]
 
-    #     # Get the content of the files
-    #     responses = list(map(get_data.download_NO2_data, hrefs))
+        # Get the content of the files
+        responses = list(map(get_data.download_NO2_data, hrefs))
 
-    #     # Get the index
-    #     indices_to_keep = [i for i, val in enumerate(responses) if val != None]
+        # Get the index
+        indices_to_keep = [i for i, val in enumerate(responses) if val != None]
 
-    #     # Select the files that still need to be dowloaded
-    #     files_to_download = list(map(responses.__getitem__, indices_to_keep))
+        # Select the files that still need to be dowloaded
+        files_to_download = list(map(responses.__getitem__, indices_to_keep))
 
-    #     # Get the names of the files that still need to be downloaded.
-    #     file_names_to_download = list(map(file_names.__getitem__, indices_to_keep))
+        # Get the names of the files that still need to be downloaded.
+        file_names_to_download = list(map(file_names.__getitem__, indices_to_keep))
 
-    #     if len(files_to_download) != 0:
-    #         list(map(get_data.write_data, file_names_to_download, files_to_download))
-    #     else:
-    #         print("All files have already been downloaded.")
+        if len(files_to_download) != 0:
+            list(map(get_data.write_data, file_names_to_download, files_to_download))
+        else:
+            print("All files have already been downloaded.")
 
 if __name__ == "__main__":
     # config = add_arguments()
