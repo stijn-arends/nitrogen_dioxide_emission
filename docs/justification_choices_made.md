@@ -4,7 +4,7 @@
 * * *
 ### Data maintenance 
 
-The data is stored and maintained by third parties, links can be found in the [data source](../README.md) section in the README. The data that was originally used 
+The data is stored and maintained by third parties, links can be found in the [data source](../README.md#source) section in the README. The data that was originally used 
 for this project can be found inside this reposity in the [data](../data/) and [geojson](../geojson/) folders. No personal or private data was used so the data can be 
 stored in the repository. 
 
@@ -89,18 +89,21 @@ values for both lockdown states. Finally, violin plots were used to get a more d
 so that each station can be looked at individually. 
 
 #### Checking assumptions
-QQ plots were used to check for normality in the data. 
+A Q-Q plot is used to check for normality because there is a large sample size (>50). A Q-Q plot is made for both years and lockdown states. 
 
 #### Visualizing the data
-The two different folium maps were created to give a nice representaion of the data and the location of the station.
+Three different visualisation were used to display the data, two of them are maps and the other one is a line chart. First, a map was created that displays the location and names of the different stations. The NO2 value for a specific data is displayed when you click on a station. The date can be altered using a widget panel, which also displays if the selected date was during a lockdown or not. Next, a map was created to display the NO2 values over time for the different stations. This can give a quick overview on how the NO2 values change over time. Finally, a line chart was created to give a more detailed look on the NO2 emission for a certain station. Three widgets are linked to this plot, a select year widget, a data range slider, and a widget to select a station. The select year widget also influences the date range slider. In addition to this, the plot also displays where the lcokdowns start and end. 
 
+* * *
 ### Statistical testing
 
-A Mann-Whitney U test was performed to test for differences between the two groups.  QQ plots, and the Levene's test were used to check if the data had a normal distribution and that there was equal variance amongst the data. However, that turned out to be not the case. That is why a non-parametric Mann-Whitney U test was used instead of a parametric T-test or ANNOVA.
+The Levene's test of equality was used to check if the different groups contained equal variance. Median was used as center, because it is recommended for non-normal data[[7]](#references). Equal variance of NO2 emission levels was tested for the two lockdown states in both years. For both instances the null hypothesis was rejected and it was concluded that the groups did not have equal variance. 
 
-> NOTE: a more detailed explanation can be found in section `3 Check assumptions` inside the notebook
+In summary, the two different groups are not normally distributed and do not have equal variance. This means that a T-test or ANOVA can't be used to test if there is a significant difference between the two groups. However, a non-parametric test can be used.  
 
+The Mann-Whitney U test was used to check for differences between the two groups. Because, "the Mann-Whitney U Test is a nonparametric version of the independent samples t-test. The test primarily deals with two independent samples that contain ordinal or continous data"[[8]](#references).
 
+* * *
 # References
 
 [1] https://www.semanticscholar.org/paper/Imputation-methods-for-filling-missing-data-in-air-Zakaria-Noor/068aef2863fa856e8498f74674ecb4806df88c93  
@@ -109,3 +112,5 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 [4] https://www.luchtmeetnet.nl/informatie/overige/negatieve-waarden  
 [5] https://www.ncbi.nlm.nih.gov/books/NBK138707/  
 [6] https://environmentaldevices.com/wp-content/uploads/2020/05/WHO-Guidlines.pdf  
+[7] https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.levene.html  
+[8] https://corporatefinanceinstitute.com/resources/knowledge/other/nonparametric-tests/
