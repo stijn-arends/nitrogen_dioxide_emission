@@ -1,5 +1,5 @@
 # The effect of a lockdown on the nitrogen dioxide emission in the Netherlands
-Studying the effect of the number of corona cases and the lockdowns on the emission of nitrogen dioxide (NO2) in the Netherlands. 
+Studying the effect of the lockdowns that were initiated due to the corona pandemic on the emission of nitrogen dioxide (NO2) in the Netherlands. 
 
 [![Python version](https://img.shields.io/badge/python-3-blue)](https://www.python.org/download/releases/3.0/)
 [![panel](https://img.shields.io/badge/Python%20package-panel-brightgreen)](https://panel.holoviz.org/)
@@ -22,8 +22,7 @@ This project studies the effect of the lockdowns that were initiated due to the 
 
 Two different maps were created to show the NO2 emission in the Netherlands with the use of [folium](https://python-visualization.github.io/folium/). For one map the NO2 emission is displayed for each station for a date that can be selected by the user, it also displays if the selected date was during a lockdown or not. The second map displays the NO2 emission over time. In addition to this, a plot was created to show the NO2 emission in a line graph. The user can then select a station of intereset plus the date of interest. The date can be modified using a date range slider. 
 
-These different plots were cobined to create a dashboard about NO2 emission in the Netherlands. The dashboard was created using [panel](https://panel.holoviz.org/) and [bokeh](https://bokeh.org/). 
-
+These different plots were cobined to create a dashboard about NO2 emission in the Netherlands. The dashboard was created using [panel](https://panel.holoviz.org/) and [bokeh](https://bokeh.org/).
 <br/><br/>
 
 * * *
@@ -66,8 +65,6 @@ Information about the script and how to use it can be aquired using the help arg
 #### COVID and geojson
 
 To download the COVID and geojson data please use the links provided in the [data source](#source) section.
-
-
 <br/><br/>
 
 
@@ -139,7 +136,6 @@ urls: {
 data: './data/'
 
 ```
-
 <br/><br/>
 
 * * *
@@ -153,11 +149,11 @@ If additional NO2 emission data is published then it can be downloaded using the
 
 ### Coding
 
-Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specif class, and or don't benefit from being inside of one. An example of this is the function that checks if a date is during a lockdown, or the functions that plot a heatmap, or violin plot. 
+Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specific class, and or don't benefit from being inside of one. An example of this is the function that checks if a date is during a lockdown, or the functions that plot a heatmap, or violin plot. 
 
 However, the code for the dashboard is organized inside of classes where the SOLID principles were followed whever it was possible. For example, a base class was made to create a folium map, which can easily be extended by inherting it in a new class and adding additional functionalties. For example to create a map with markers or a heatmap over time. 
 
-A [logging decorator](scripts/logger.py) was created to make sure that the code ran smoothly. If any exception occured while running the code than that would be logged, and if everything goes smoothly than that is reported.
+A [logging decorator](scripts/logger.py) was created to make sure that the code ran smoothly. If any exception occured while running the code than that would be logged, and if everything goes smoothly than that would be reported.
 
 ### Data filtering and imputation
 
@@ -182,7 +178,6 @@ The two different folium maps were created to give a nice representaion of the d
 A Mann-Whitney U test was performed to test for differences between the two groups.  QQ plots, and the Levene's test were used to check if the data had a normal distribution and that there was equal variance amongst the data. However, that turned out to be not the case. That is why a non-parametric Mann-Whitney U test was used instead of a parametric T-test or ANNOVA.
 
 > NOTE: a more detailed explanation can be found in section `3 Check assumptions` inside the notebook
-
 <br/><br/>
 
 * * *
@@ -191,7 +186,6 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 | Software                          | Version  |
 | --------------------------------- | :------: |
 | [Python](https://www.python.org/) | `3.9.7`  |  
-
 <br/><br/>
 
 * * *
@@ -217,15 +211,12 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 | [scipy](https://scipy.org/)                                       | `1.7.3`        |
 | [statsmodel](https://www.statsmodels.org/stable/index.html)       | `0.13.0`       |
 | [tqdm](https://pypi.org/project/tqdm/)                            | `4.62.3`       | 
-
-
 <br/><br/>
   
 * * *
 ## License
 
 This project contains a MIT [license](./LICENSE.md)
-  
 <br/><br/>
 
 * * *
