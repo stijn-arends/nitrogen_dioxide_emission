@@ -185,7 +185,8 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 
 | Software                          | Version  |
 | --------------------------------- | :------: |
-| [Python](https://www.python.org/) | `3.9.7`  |  
+| [Python](https://www.python.org/) | `3.9.7`  |
+
 <br/><br/>
 
 * * *
@@ -211,6 +212,7 @@ A Mann-Whitney U test was performed to test for differences between the two grou
 | [scipy](https://scipy.org/)                                       | `1.7.3`        |
 | [statsmodel](https://www.statsmodels.org/stable/index.html)       | `0.13.0`       |
 | [tqdm](https://pypi.org/project/tqdm/)                            | `4.62.3`       | 
+
 <br/><br/>
   
 * * *
