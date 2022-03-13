@@ -98,7 +98,8 @@ pip
   pip install <PACKAGE>==<VERSION>
 ```
 
-> NOTE: make sure to use the correct versions, which are listed [here](#packages).  
+> NOTE: make sure to use the correct versions, which are listed [here](#packages).
+
 <br/><br/>
 
 * * *
