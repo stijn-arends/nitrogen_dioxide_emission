@@ -99,8 +99,6 @@ pip
 ```
 
 > NOTE: make sure to use the correct versions, which are listed [here](#packages).  
-
-
 <br/><br/>
 
 * * *
@@ -136,14 +134,12 @@ urls: {
 data: './data/'
 
 ```
-<br/><br/>
 
 * * *
 ## Justifying my actions
 
 The [justification_choices_made.md](docs/justification_choices_made.md) file explains the choices that were made during this project. 
 
-<br/><br/>
 
 * * *
 ## Requirements
@@ -151,8 +147,6 @@ The [justification_choices_made.md](docs/justification_choices_made.md) file exp
 | Software                          | Version  |
 | --------------------------------- | :------: |
 | [Python](https://www.python.org/) | `3.9.7`  |
-
-<br/><br/>
 
 * * *
 ## Packages
@@ -178,13 +172,10 @@ The [justification_choices_made.md](docs/justification_choices_made.md) file exp
 | [statsmodel](https://www.statsmodels.org/stable/index.html)       | `0.13.0`       |
 | [tqdm](https://pypi.org/project/tqdm/)                            | `4.62.3`       | 
 
-<br/><br/>
-  
 * * *
 ## License
 
 This project contains a MIT [license](./LICENSE.md)
-<br/><br/>
 
 * * *
 ## Author
