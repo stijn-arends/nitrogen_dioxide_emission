@@ -141,43 +141,8 @@ data: './data/'
 * * *
 ## Justifying my actions
 
-### Data maintenance 
+The [justification_choices_made.md](docs/justification_choices_made.md) file explains the choices that were made during this project. 
 
-The data is stored and maintained by third parties, links can be found in the [data source](#source) section. The data that was originally used for this project can be found inside this reposity in the [data](data/) and [geojson](geojson/) folders. No personal or private data was used so the data can be stored in the repository. 
-
-If additional NO2 emission data is published then it can be downloaded using the [download data script](scripts/download_data.py). 
-
-### Coding
-
-Not every piece of code is organized inside of a class. I thought that for some pieces of code that it was not necessary. These pieces of code do not particularly belong to a specific class, and or don't benefit from being inside of one. An example of this is the function that checks if a date is during a lockdown, or the functions that plot a heatmap, or violin plot. 
-
-However, the code for the dashboard is organized inside of classes where the SOLID principles were followed whever it was possible. For example, a base class was made to create a folium map, which can easily be extended by inherting it in a new class and adding additional functionalties. For example to create a map with markers or a heatmap over time. 
-
-A [logging decorator](scripts/logger.py) was created to make sure that the code ran smoothly. If any exception occured while running the code than that would be logged, and if everything goes smoothly than that would be reported.
-
-### Data filtering and imputation
-
-The original data contained a lot of missing data. For starters, stations that had more then 30% missing values were removed. It was decided to remove these stations because interpolation or imputation of data with two many missing values is not reliable and representative. The missing values of the stations that passed the initial filtering were imputed with a regression based approach. The reasoning for this is described inside the notebook in section `1.4 Impute missing data`. 
-
-
-### Data inspection
-
-First, the data was inspected by getting the descriptive statistics, mean, std, var, max, min, etc. How possible outliers were handled amongst other things is described in secion `2 Data inspection` inside the notebook.
-
-
-### Plotting 
-
-Several plots were used to inspect the data. First, a heatmap was created to check if there were correlation between the different stations. The heatmap was created because information about the correlation between stations was needed for data imputation. Because, to impute data for a station, correlated stations were needed to create a model which produces reliable results. Second, a density plot was created to get an impression of the distribution of the NO2 values for both lockdown states. Finally, violin plots were used to get a more detailed look at the distribution of the NO2 values for both lockdowns. Weidgets were also added so that each station can be looked at individually. 
-
-QQ plots were used to check for normality in the data. 
-
-The two different folium maps were created to give a nice representaion of the data and the location of the station.
-
-### Statistical testing
-
-A Mann-Whitney U test was performed to test for differences between the two groups.  QQ plots, and the Levene's test were used to check if the data had a normal distribution and that there was equal variance amongst the data. However, that turned out to be not the case. That is why a non-parametric Mann-Whitney U test was used instead of a parametric T-test or ANNOVA.
-
-> NOTE: a more detailed explanation can be found in section `3 Check assumptions` inside the notebook
 <br/><br/>
 
 * * *
