@@ -100,8 +100,6 @@ pip
 
 > NOTE: make sure to use the correct versions, which are listed [here](#packages).
 
-<br/><br/>
-
 * * *
 ## Getting started
 
@@ -111,7 +109,7 @@ The notebook contains the code for the analysis as well as the code to create th
 
 The configuration file, which is described below, needs to be filled in to be able to run the [notebook](NO2_emission_corona.ipynb). Besides that, the notebook should be run from top to bottom to make sure that no erros occur. 
 
-> NOTE: jupyter itself has to be launched frist
+> NOTE: jupyter itself has to be launched first
 
 ### Configuration file
 
